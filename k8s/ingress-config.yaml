@@ -1,30 +1,28 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: code-complete
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-      http:
-        paths:
-        - path: /exercises
+    http:
+      paths:
+      - path: /exercises
+        backend:
+          serviceName: code-exercises
+          servicePort: 8080
+      - path: /inputs
+        backend:
+          serviceName: code-inputs
+          servicePort: 8080
+      - path: /outputs
+        backend:
+          serviceName: code-outputs
+          servicePort: 8080
+      - path: /subjects
           backend:
-            serviceName: code-exercises
+            serviceName: code-subjects
             servicePort: 8080
-        - path: /inputs
+      - path: /scripts
           backend:
-            serviceName: code-inputs
-            servicePort: 8081
-        - path: /outputs
-          backend:
-            serviceName: code-outputs
-            servicePort: 8082
-        - path: /subjects
-            backend:
-              serviceName: code-subjects
-              servicePort: 8083
-        - path: /scripts
-            backend:
-              serviceName: code-ide
-              servicePort: 8084
+            serviceName: code-ide
+            servicePort: 8080
