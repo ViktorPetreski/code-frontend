@@ -6,23 +6,23 @@ spec:
   rules:
     http:
       paths:
-      - path: /exercises
+      - path: /exercises/*
         backend:
           serviceName: code-exercises
           servicePort: 8080
-      - path: /inputs
+      - path: /inputs/*
         backend:
           serviceName: code-inputs
           servicePort: 8080
-      - path: /outputs
+      - path: /outputs/*
         backend:
           serviceName: code-outputs
           servicePort: 8080
-      - path: /subjects
+      - path: /subjects/*
         backend:
           serviceName: code-subjects
           servicePort: 8080
-      - path: /scripts
+      - path: /scripts/*
         backend:
           serviceName: code-ide
           servicePort: 8080
