@@ -4,7 +4,7 @@ metadata:
   name: code-complete
 spec:
   rules:
-    http:
+  - http:
       paths:
       - path: /exercises/*
         backend:
