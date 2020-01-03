@@ -3,20 +3,21 @@ kind: Ingress
 metadata:
   name: code-ingress
   annotations:
+    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
-      - path: /exercises
+      - path: /exercises/*
         backend:
           serviceName: code-exercises
           servicePort: 8080
-      - path: /inputs
+      - path: /inputs/*
         backend:
           serviceName: code-inputs
           servicePort: 8080
-      - path: /scripts
+      - path: /scripts/*
         backend:
           serviceName: code-ide
           servicePort: 8080
