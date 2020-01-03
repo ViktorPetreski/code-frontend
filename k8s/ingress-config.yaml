@@ -20,7 +20,7 @@ spec:
         backend:
           serviceName: code-subjects
           servicePort: 8080
-      - path: /scripts/v1/scripts/*
+      - path: /scripts/v1/script/*
         backend:
           serviceName: code-ide
           servicePort: 8080
