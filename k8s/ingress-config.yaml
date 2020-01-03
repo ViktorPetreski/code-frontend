@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: code-complete
+  name: code-ingress
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
