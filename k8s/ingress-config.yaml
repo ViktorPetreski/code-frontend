@@ -10,10 +10,6 @@ spec:
         backend:
           serviceName: code-exercises
           servicePort: 8080
-      - path: /inputs/*
-        backend:
-          serviceName: code-inputs
-          servicePort: 8080
       - path: /outputs/*
         backend:
           serviceName: code-outputs
