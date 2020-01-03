@@ -3,20 +3,20 @@ kind: Ingress
 metadata:
   name: code-ingress
   annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
       paths:
-      - path: /exercises/v1/exercises/*
+      - path: /exercises
         backend:
           serviceName: code-exercises
           servicePort: 8080
-      - path: /inputs/v1/inputs/*
+      - path: /inputs
         backend:
           serviceName: code-inputs
           servicePort: 8080
-      - path: /scripts/v1/script/*
+      - path: /scripts
         backend:
           serviceName: code-ide
           servicePort: 8080
