@@ -28,3 +28,7 @@ spec:
             serviceName: code-subjects
             servicePort: 8080
           path: /subjects($|/)(.*)
+        - backend:
+            serviceName: code-outputs
+            servicePort: 8080
+            path: /outputs($|/)(.*)
