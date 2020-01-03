@@ -31,4 +31,4 @@ spec:
         - backend:
             serviceName: code-outputs
             servicePort: 8080
-            path: /outputs($|/)(.*)
+          path: /outputs($|/)(.*)
