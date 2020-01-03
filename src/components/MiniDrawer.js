@@ -86,10 +86,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const [exercise, setExercise] = React.useState("No content");
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -99,6 +100,10 @@ export default function MiniDrawer() {
         setOpen(false);
     };
 
+    const handleExerciseChange = (exercise) => {
+        setExercise(exercise);
+    };
+
     return (
         <div className={classes.root}>
             <CssBaseline/>
@@ -106,8 +111,7 @@ export default function MiniDrawer() {
                 position="fixed"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
-                })}
-            >
+                })}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -144,17 +148,16 @@ export default function MiniDrawer() {
                         [classes.drawerOpen]: open,
                         [classes.drawerClose]: !open,
                     }),
-                }}
-            >
+                }}>
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
                     </IconButton>
                 </div>
                 <Divider/>
-                <NestedList/>
+                <NestedList onExerciseChange={handleExerciseChange}/>
             </Drawer>
-            <Main/>
+            <Main exercise={exercise}/>
 
         </div>
     );

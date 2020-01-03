@@ -6,25 +6,25 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-      http:
-        paths:
-          - path: /exercises
-            backend:
-              serviceName: code-exercises
-              servicePort: 8080
-          - path: /inputs
-            backend:
-              serviceName: code-inputs
-              servicePort: 8081
-          - path: /outputs
-            backend:
-              serviceName: code-outputs
-              servicePort: 8082
-          - path: /subjects
-              backend:
-                serviceName: code-subjects
-                servicePort: 8083
-          - path: /scripts
-              backend:
-                serviceName: code-ide
-                servicePort: 8084
+    http:
+      paths:
+      - path: /exercises
+        backend:
+          serviceName: code-exercises
+          servicePort: 8080
+      - path: /inputs
+        backend:
+          serviceName: code-inputs
+          servicePort: 8080
+      - path: /outputs
+        backend:
+          serviceName: code-outputs
+          servicePort: 8080
+      - path: /subjects
+        backend:
+          serviceName: code-subjects
+          servicePort: 8080
+      - path: /scripts
+        backend:
+          serviceName: code-ide
+          servicePort: 8080
